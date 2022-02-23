@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     
     
     Vector2 rawInput;
+    
+    //padding so player can't move out from camera
     [SerializeField] float paddingLeft;
     [SerializeField] float paddingRight;
     [SerializeField] float paddingTop;
@@ -16,6 +18,14 @@ public class Player : MonoBehaviour
 
     Vector2 minBounds;
     Vector2 maxBounds;
+
+    Shooter shooter;
+
+    void Awake()
+    {
+        shooter = GetComponent<Shooter>();
+    }
+
 
     void Start()
     {
@@ -27,6 +37,7 @@ public class Player : MonoBehaviour
         Move();
     }
 
+    //player still in camera, can't out
     void InitBounds()
     {
         Camera mainCamera = Camera.main;
@@ -34,6 +45,8 @@ public class Player : MonoBehaviour
         maxBounds = mainCamera.ViewportToWorldPoint(new Vector2(1, 1));
     }
 
+
+    //move player (smooth)
     void Move()
     {
         Vector2 delta = rawInput * moveSpeed * Time.deltaTime;
@@ -48,5 +61,14 @@ public class Player : MonoBehaviour
         rawInput = value.Get<Vector2>();
         
     }
+
+    void OnFire(InputValue value)
+    {
+        if(shooter != null)
+        {
+            shooter.isFiring = value.isPressed;
+        }
+    }
+
 
 }
