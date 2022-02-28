@@ -95,6 +95,8 @@ GameObject:
   - component: {fileID: 8050916679615380621}
   - component: {fileID: 4928651489502190354}
   - component: {fileID: 6087871315868677881}
+  - component: {fileID: 161570327}
+  - component: {fileID: 161570328}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -187,6 +189,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 30
+  hitEffect: {fileID: 828040874842515473, guid: dc134843fa953194a94bf791ea4b3745,
+    type: 3}
+  applyCameraShake: 1
 --- !u!114 &6087871315868677881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,5 +208,56 @@ MonoBehaviour:
     type: 3}
   projectileSpeed: 10
   projectileLifetime: 5
-  firingRate: 0.2
+  baseFiringRate: 0.2
+  useAI: 0
+  firingRateVar: 0
+  minFiringRate: 0.1
   isFiring: 0
+--- !u!114 &161570327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7304958370633970217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4321cea1fe1b1444f9232c6301a3d280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  paddingLeft: 0.5
+  paddingRight: 0.5
+  paddingTop: 3
+  paddingBottom: 3
+--- !u!114 &161570328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7304958370633970217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: e99a5a0b0589e78428eb3c301541ddc0,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
